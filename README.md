@@ -9,6 +9,7 @@ The "Find the Fake Gold Bar" game is a simple web-based game where you use a bal
 - **Button Controls**: Add bars to the left or right scale, remove them, and mark them as real.
 - **Result Display**: Shows which side of the scale is lighter or if they are balanced.
 - **Game End**: Once all but one bar is marked as real, the game will reveal the fake bar and display the number of weighings taken.
+- **Reset**: Start a new game at any time with the Reset button.
 
 ## Getting Started
 
@@ -21,5 +22,7 @@ To run this game, you need a web browser that supports HTML, CSS, and JavaScript
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/yourusername/find-the-fake.git
+   git clone https://github.com/ywapom/find-the-fake.git
    cd find-the-fake
+
+2. **Launch the index.html file
