@@ -1,4 +1,3 @@
-// script.js
 let fakeBar = null;
 let selectedBars = { left: [], right: [] };
 let realBars = new Set(); // Set to track real bars
@@ -18,41 +17,22 @@ function init() {
 }
 
 // Create bar buttons
-// function updateBarButtons() {
-//     const container = document.getElementById('barsContainer');
-//     container.innerHTML = '';
-//     for (let i = 1; i <= 9; i++) {
-//         const button = document.createElement('div');
-//         button.className = 'bar-container';
-//         button.innerHTML = `
-//             <span class="bar ${realBars.has(i) ? 'real-bar' : ''}">Bar ${i}</span>
-//             <button onclick="addBar(${i}, 'left')">Add to Left</button>
-//             <button onclick="addBar(${i}, 'right')">Add to Right</button>
-//             <button onclick="removeBar(${i})">Remove</button>
-//             <button onclick="markAsReal(${i})">Mark as Real</button>
-//         `;
-//         container.appendChild(button);
-//     }
-// }
 function updateBarButtons() {
     const container = document.getElementById('barsContainer');
     container.innerHTML = '';
     for (let i = 1; i <= 9; i++) {
-        const buttonContainer = document.createElement('div');
-        buttonContainer.className = 'bar-container';
-        buttonContainer.innerHTML = `
+        const button = document.createElement('div');
+        button.className = 'bar-container';
+        button.innerHTML = `
             <span class="bar ${realBars.has(i) ? 'real-bar' : ''}">Bar ${i}</span>
-            <div class="button-group">
-                <button onclick="addBar(${i}, 'left')">Add to Left</button>
-                <button onclick="addBar(${i}, 'right')">Add to Right</button>
-                <button onclick="removeBar(${i})">Remove</button>
-                <button onclick="markAsReal(${i})">Mark as Real</button>
-            </div>
+            <button onclick="addBar(${i}, 'left')">Add to Left</button>
+            <button onclick="addBar(${i}, 'right')">Add to Right</button>
+            <button onclick="removeBar(${i})">Remove</button>
+            <button onclick="markAsReal(${i})">Mark as Real</button>
         `;
-        container.appendChild(buttonContainer);
+        container.appendChild(button);
     }
 }
-
 
 // Add bar to scale
 function addBar(barNumber, scale) {
@@ -80,6 +60,10 @@ function removeBar(barNumber) {
 
 // Mark a bar as real
 function markAsReal(barNumber) {
+    if (barNumber === fakeBar) {
+        loseGame(); // End the game if the fake bar is marked real
+        return;
+    }
     realBars.add(barNumber);
     removeBar(barNumber); // Remove from scales if marked real
     updateBarButtons(); // Update the display to show marked bars
@@ -96,6 +80,11 @@ function endGame() {
     updateResultMessage(`Fake bar is Bar ${fakeBarNumber}. Found in ${weighCount} weighings.`);
 }
 
+// Lose the game when the fake bar is marked as real
+function loseGame() {
+    updateResultMessage('You marked the fake bar as real! Game over.');
+}
+
 // Update the display of the scales
 function updateScales() {
     const leftScale = document.getElementById('leftScale').getElementsByClassName('bars')[0];
@@ -110,6 +99,10 @@ function updateResultMessage(message) {
     const resultMessageElement = document.getElementById('resultMessage');
     if (resultMessageElement) {
         resultMessageElement.textContent = message;
+        if (message.includes('Game over')) {
+            resultMessageElement.style.fontSize = '24px'; // Make the game-over message larger
+            resultMessageElement.style.color = 'red'; // Make the game-over message red
+        }
     }
 }
 
