@@ -21,5 +21,5 @@ To run this game, you need a web browser that supports HTML, CSS, and JavaScript
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/yourusername/find-the-fake.git
+   git clone https://github.com/ywapom/find-the-fake.git
    cd find-the-fake
