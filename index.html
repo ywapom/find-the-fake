@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>find-the-fake-game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h2>Find the Fake Gold Bar!</h2>
+    <p>Mark bars as real until the fake is revealed</p>
+    <div class="scales">
+        <div id="leftScale" class="scale">
+            <h2>Left Scale</h2>
+            <div class="bars"></div>
+        </div>
+        <div id="rightScale" class="scale">
+            <h2>Right Scale</h2>
+            <div class="bars"></div>
+        </div>
+    </div>
+    <div id="resultMessage" class="result-message"></div>
+    <div class="controls">
+        <button onclick="showResult()">Weigh</button>
+        <button onclick="clearScales()">Clear Scales</button>
+        <button onclick="resetGame()">Reset</button>
+    </div>
+    <div class="bars-selection">
+        <h2>Select Bars</h2>
+        <div id="barsContainer"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

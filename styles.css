@@ -1,0 +1,114 @@
+/* General body styles */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+}
+
+/* Heading styles */
+h1 {
+    margin-bottom: 20px;
+}
+
+/* Scales container styles */
+.scales {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* Individual scale styles */
+.scale {
+    border: 3px solid #000;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 0 20px;
+    width: 180px;
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: linear-gradient(to bottom, #f5f5f5, #e0e0e0);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Container for bars within scales */
+.bars {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 30px;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto; /* Scrollbars if needed */
+}
+
+/* Style for each bar */
+.bar {
+    margin: 2px;
+    padding: 5px;
+    border: 2px solid #d4af37;
+    background-color: gold;
+    display: inline-block;
+    width: 80px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 5px; /* Rounded corners for bars */
+}
+
+/* Styling for bars marked as real */
+.real-bar {
+    background-color: #ccc;
+    color: #333;
+    border: 2px solid #666;
+}
+
+/* Styles for the selection area */
+.bars-selection {
+    margin: 20px 0;
+}
+
+/* Container for bar buttons and text */
+.bar-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0; /* Adjusted margin to space out bars vertically */
+}
+
+/* Style for the bar text */
+.bar-container .bar {
+    margin-right: 10px; /* Space between bar and buttons */
+}
+
+/* Styling for buttons */
+.bar-container button {
+    padding: 8px 15px;
+    border: 2px solid darkblue;
+    border-radius: 5px;
+    background-color: whitesmoke;
+    color: darkblue;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 2px; /* Space between buttons */
+    transition: background-color 0.3s;
+}
+
+.bar-container button:hover {
+    background-color: #0056b3;
+}
+
+.bar-container button:active {
+    background-color: #004494;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Styles for the result message */
+.result-message {
+    margin: 20px;
+    font-size: 20px; /* Larger text for final message */
+    font-weight: bold;
+    color: darkblue;
+}
